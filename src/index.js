@@ -1,0 +1,1 @@
+const css = require('./test.css')
