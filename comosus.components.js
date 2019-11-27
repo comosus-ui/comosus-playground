@@ -3,6 +3,16 @@ const { Hover, Active, DarkMode } = require('./comosus/conditions')
 
 const Button = {
   base: {
+    display: {
+      // feels not great, shouldnt have more than one thing
+      column: {
+        default: {
+          // placement: 'start',
+          mainAxis: 'between',
+          crossAxis: 'end'
+        }
+      }
+    },
     content: {
       fontWeight: 'fontWeight.semibold',
       fontFamily: () => 'sans-serif',
