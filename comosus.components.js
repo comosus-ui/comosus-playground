@@ -56,6 +56,52 @@ const Button = {
   }
 }
 
+const Column = {
+  base: {
+    display: {
+      column: {
+        default: {
+          placement: 'center',
+        }
+      }
+    }
+  }
+}
+
+const Grid = {
+  base: {
+    display: {
+      autoGrid: {
+        default: {
+          columns: '3',
+          placement: 'fill',
+          gap: '10px'
+        }
+      }
+    }
+  }
+}
+const Layout = {
+  base: {
+    display: {
+      namedGrid: {
+        default: {
+          columnGap: '10px',
+          template: [
+            ['head', '30px'],
+            ['nav', 'main', '1fr'],
+            ['nav', 'foot', '20px'],
+            ['120px', '1fr']
+          ]
+        }
+      }
+    }
+  }
+}
+
 module.exports = {
-  Button
+  Button,
+  Column,
+  Grid,
+  Layout
 }
