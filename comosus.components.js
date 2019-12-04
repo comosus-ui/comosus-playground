@@ -3,7 +3,7 @@ const { Hover, Active, DarkMode } = require('./comosus/conditions')
 
 const Button = {
   base: {
-    display: {
+    layout: {
       // feels not great, shouldnt have more than one thing
       column: {
         default: {
@@ -56,21 +56,10 @@ const Button = {
   }
 }
 
-const Column = {
-  base: {
-    display: {
-      column: {
-        default: {
-          placement: 'center',
-        }
-      }
-    }
-  }
-}
 
 const Grid = {
   base: {
-    display: {
+    layout: {
       autoGrid: {
         default: {
           columns: '3',
@@ -81,9 +70,10 @@ const Grid = {
     }
   }
 }
+
 const Layout = {
   base: {
-    display: {
+    layout: {
       namedGrid: {
         default: {
           columnGap: '10px',
