@@ -55,12 +55,8 @@ const generateContent = (name, content, contexts) => {
             const children = content.slice(1)
             let arrContent = []
             for(let i = 0; i < numChildren; i++) {
-              // console.log("CHILDREN:", i % (children.length), children[i % (children.length)])
-              // arrContent.push(handleContentString('', '', children[i % children.length]))
               arrContent.push(handleContentStringShallow(children[i % children.length]))
             }
-            console.log(arrContent, arrContent.join('\n'))
-            // console.log(handleContentString(name, context, arrContent.join('\n')))
             res.push(handleContentString(name, context, arrContent.join('\n')))
           } else {
             content.forEach(child => res.push(handleContentString(name, context, child)))
