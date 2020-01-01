@@ -2,6 +2,10 @@ const { when } = require('./comosus/component-utils')
 const { Hover, Active, DarkMode } = require('./comosus/conditions')
 
 const Button = {
+  docs: {
+    description: `It's just a button!`,
+    content: "lorem-5"
+  },
   base: {
     layout: {
       // feels not great, shouldnt have more than one thing
@@ -52,12 +56,43 @@ const Button = {
           [when([DarkMode, Hover])]: 'colors.blue.60',
         }
       }
+    },
+    secondary: {
+      layout: {
+        // feels not great, shouldnt have more than one thing
+        column: {
+          default: {
+            placement: 'start',
+          }
+        }
+      },
+      background: {
+        color: {
+          default: 'colors.blue.90',
+          [when(Hover)]: 'colors.blue.80',
+          [when(DarkMode)]: 'colors.blue.00',
+          [when([DarkMode, Hover])]: 'colors.blue.10',
+        }
+      },
+      content: {
+        color: {
+          default: 'colors.blue.10',
+          [when(Hover)]: 'colors.blue.20',
+          [when(Active)]: 'colors.blue.10',
+          [when(DarkMode, [DarkMode, Active])]: 'colors.blue.50',
+          [when([DarkMode, Hover])]: 'colors.blue.60',
+        }
+      }
     }
   }
 }
 
 
 const Grid = {
+  docs: {
+    description: `Some auto-grid!`,
+    content: [11, "lorem-12"]
+  },
   base: {
     layout: {
       autoGrid: {
@@ -72,6 +107,10 @@ const Grid = {
 }
 
 const Layout = {
+  docs: {
+    description: `A _simple_ page layout with a header, footer, nav, and main section`,
+    content: [8, "lorem-3"]
+  },
   base: {
     layout: {
       namedGrid: {
@@ -91,7 +130,6 @@ const Layout = {
 
 module.exports = {
   Button,
-  Column,
   Grid,
   Layout
 }
