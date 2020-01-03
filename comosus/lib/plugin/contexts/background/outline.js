@@ -1,4 +1,5 @@
 const PropertyInterpreter = require('../../../classes/PropertyInterpreter')
+const GetThemeValue = require('../../../util/GetThemeValue')
 
 const widths = ['thin', 'medium', 'thick', '0']
 const absoluteUnits = ['cm', 'mm', 'in', 'px', 'pt', 'pc']
@@ -7,7 +8,11 @@ const units = [...absoluteUnits, ...relativeUnits]
 // required
 const styles = ['dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset', 'none', 'hidden']
 
-module.exports = new PropertyInterpreter('outline', (input) => {
+module.exports = new PropertyInterpreter('outline', (input, theme) => {
+  if(typeof input === 'string') {
+    return { outline: GetThemeValue(theme, input) }
+  }
+
   if(typeof input === 'function') input = input();
 
   const fields = input.outline.split(/\s+/)

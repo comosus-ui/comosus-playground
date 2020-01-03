@@ -78,6 +78,9 @@ const Button = {
         })        
       },
       background: {
+        outline: { 
+          [when(Hover)]: 'outline.none' 
+        },
         color: {
           default: 'colors.blue.90',
           [when(Hover)]: 'colors.blue.80',
