@@ -45,5 +45,21 @@ module.exports = {
   shadow: {
     '1': '0 1px 3px -1px rgba(0,0,0,0.4)',
     '2': '0 2px 7px -3px rgba(0,0,0,0.4)'
+  },
+  // would it be worth providing these type of things by default?
+  cursor: {
+    pointer: 'pointer',
+    default: 'default',
+    grab: 'grab',
+    none: 'none',
+  },
+  outline: {
+    none: 'none',
+  },
+  textTransform: {
+    none: 'none',
+    capitalize: 'capitalize',
+    uppercase: 'uppercase',
+    lowercase: 'lowercase',
   }
 }

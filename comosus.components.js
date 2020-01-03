@@ -18,11 +18,18 @@ const Button = {
       }
     },
     content: {
-      fontWeight: 'fontWeight.semibold',
+      textTransform: () => 'uppercase',
+      fontWeight: () => 'semibold',
       fontFamily: () => 'sans-serif',
       truncate: true
     },
     background: {
+      outline: {
+        [when(Hover)]: {
+          outline: '0.25rem dotted #33333333',
+          offset: '0.5rem'
+        }
+      },
       shadow: {
         default: 'shadow.1',
         [when(Hover)]: 'shadow.2'
@@ -33,6 +40,12 @@ const Button = {
         default: {
           x: 'spacing.3',
           y: 'spacing.2'
+        }
+      },
+      margin: {
+        default: {
+          x: 'spacing.2',
+          y: 'spacing.3'
         }
       }
     }
@@ -60,11 +73,9 @@ const Button = {
     secondary: {
       layout: {
         // feels not great, shouldnt have more than one thing
-        column: {
-          default: {
-            placement: 'start',
-          }
-        }
+        column: () => ({
+          placement: 'start',
+        })        
       },
       background: {
         color: {
@@ -95,13 +106,11 @@ const Grid = {
   },
   base: {
     layout: {
-      autoGrid: {
-        default: {
-          columns: '3',
-          placement: 'fill',
-          gap: '10px'
-        }
-      }
+      autoGrid: () => ({
+        columns: '3',
+        placement: 'fill',
+        gap: '10px'
+      })
     }
   }
 }
@@ -112,18 +121,19 @@ const Layout = {
     content: [8, "lorem-3"]
   },
   base: {
+    content: {
+      cursor: () => 'pointer'
+    },
     layout: {
-      namedGrid: {
-        default: {
-          columnGap: '10px',
-          template: [
-            ['head', '30px'],
-            ['nav', 'main', '1fr'],
-            ['nav', 'foot', '20px'],
-            ['120px', '1fr']
-          ]
-        }
-      }
+      namedGrid: () => ({
+        columnGap: '10px',
+        template: [
+          ['head', '30px'],
+          ['nav', 'main', '1fr'],
+          ['nav', 'foot', '20px'],
+          ['120px', '1fr']
+        ]
+      })
     }
   }
 }

@@ -2,6 +2,8 @@ const PropertyInterpreter = require('../../../../classes/PropertyInterpreter')
 
 module.exports = new PropertyInterpreter('namedGrid', (input) => {
   // Get your examples robbed https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template
+  if(typeof input === 'function') input = input();
+
   const rows = input.template.slice(0, -1)
   const rowSizes = input.template.slice(-1)[0].join(' ')
 

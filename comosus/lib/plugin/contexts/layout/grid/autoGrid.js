@@ -1,7 +1,8 @@
 const PropertyInterpreter = require('../../../../classes/PropertyInterpreter')
 
 module.exports = new PropertyInterpreter('autoGrid', (input) => {
-
+  if(typeof input === 'function') input = input();
+  
   const placements = ['fit', 'fill']
   
   const hasColumnPlacement = placements.includes(input.columnPlacement)

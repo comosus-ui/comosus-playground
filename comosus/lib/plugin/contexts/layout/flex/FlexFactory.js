@@ -1,6 +1,8 @@
 const PropertyInterpreter = require('../../../../classes/PropertyInterpreter')
 
 module.exports = (variant) => new PropertyInterpreter(variant, (input) => {
+  if(typeof input === 'function') input = input();
+  
   const mainAxisVal = (inputVal) => {
     switch (inputVal) {
       case 'start':
